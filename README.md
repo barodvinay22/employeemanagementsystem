@@ -12,7 +12,7 @@ Key Features:
 2. Convention over Configuration
 3. Build Lifecycle:
    * clean - remove old build file
-   * default- compile,test,packgae ,install ,deploy
+   * default- compile,test, packgae ,install ,deploy
    * site-generate documentation
 4. Plugins
    Extend Maven
@@ -33,3 +33,16 @@ A Rest Service or Rest web service is a way to provide and consume API's over Ht
 architectural style.
 
 It is widely used in modern web and microservice applications because it is simple ,scalable and language independent.
+
+REST Principles:
+1. Client-Server -> Separation of client (frontend/UI) and server(backend logic).
+2. Stateless -> Each request contains all the necessary info.
+3. Cacheable -> Response can be cached 
+4. Uniform Interface -> Standard dataaccess (via URLS JSON/XML)
+
+Http Methods in Rest:
+GET -> Fetch data /users
+POST--> Create data /users
+PUT--> Update data(full)  /users/1
+PATCH --> Update data (partial)
+DELET --> Remove data /users/1

@@ -1,6 +1,13 @@
 package com.hexaware.employee.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +24,27 @@ public class EmployeeController {
         employees.add("Kesav");
     }
 
-    @GetMapping("/test")
-    public List<String> getAllEmployees() {
-        return employees;
+    @GetMapping
+    public ResponseEntity<List<String>>  getAllEmployees() {
+        return new ResponseEntity<>(employees, HttpStatus.OK);
+    }
+    @PostMapping
+    public ResponseEntity<String> addEmployee(@RequestBody String name){
+       employees.add(name);
+       return new ResponseEntity<>(name,HttpStatus.CREATED);
+    }
+    @GetMapping("/{index}")
+    public ResponseEntity<String> getEmployee(@PathVariable("index") Integer index){
+       return new ResponseEntity<>(employees.get(index), HttpStatus.OK);
+    }
+    @PutMapping("/{index}")
+    public ResponseEntity<String> updateEmployee(@PathVariable("index") Integer index,@RequestBody String name){
+       employees.set(index, name);
+        return new ResponseEntity<>(name,HttpStatus.OK);
+    }
+    @DeleteMapping("/{index}")
+    public ResponseEntity<Void> deleteEmployee(@PathVariable("index") int index){
+       employees.remove(index);
+       return new ResponseEntity<>(HttpStatus.OK);
     }
 }
