@@ -38,11 +38,41 @@ REST Principles:
 1. Client-Server -> Separation of client (frontend/UI) and server(backend logic).
 2. Stateless -> Each request contains all the necessary info.
 3. Cacheable -> Response can be cached 
-4. Uniform Interface -> Standard dataaccess (via URLS JSON/XML)
+4. Uniform Interface -> Standard dataAccess (via URLS JSON/XML)
 
 Http Methods in Rest:
 GET -> Fetch data /users
 POST--> Create data /users
 PUT--> Update data(full)  /users/1
 PATCH --> Update data (partial)
-DELET --> Remove data /users/1
+DELETE --> Remove data /users/1
+
+
+Spring Framework:
+   * What is Spring?
+     Open-source,lightweight, modular framework for enterprise Java application.
+     Provides infrastructure support for developing java application.
+   * Why uses Spring?
+     Loose coupling through Dependency Inject (DI).
+     Declarative programming with Aspect Oriented Programming (AOP).
+     Easy integration with Hibernate, JPA , JMS , Security, REST etc.
+Core Features:
+   * IoC(Inversion of Control).
+   * AOP(Aspect Oriented Programming).
+   * Data Access/ JDBC/ ORM
+   * Transaction Management @transactional
+   * Spring MVC(Web).
+   * Spring Security
+   * Spring Boot & Microservice.
+
+IoC And Dependency Injection:
+* IoC Container: Manages lifecycle of beans.
+* Bean Object management by Spring
+* Configuration types:
+  * XML based configuration
+  * Annotation based configuration
+
+Depdendency Injection Types:
+Consturction Injection
+Setter Injection
+

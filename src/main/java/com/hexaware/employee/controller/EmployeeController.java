@@ -1,7 +1,10 @@
 package com.hexaware.employee.controller;
 
+import com.hexaware.employee.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,10 +26,16 @@ public class EmployeeController {
         employees.add("Sayantani");
         employees.add("Kesav");
     }
+    private final EmployeeService employeeService1;
+    EmployeeController(EmployeeService employeeService) {
+        this.employeeService1 = employeeService;
+    }
+    @Autowired
+    private EmployeeService employeeService;
 
     @GetMapping
     public ResponseEntity<List<String>>  getAllEmployees() {
-        return new ResponseEntity<>(employees, HttpStatus.OK);
+        return new ResponseEntity<>(employeeService.getAllEmployees(), HttpStatus.OK);
     }
     @PostMapping
     public ResponseEntity<String> addEmployee(@RequestBody String name){
