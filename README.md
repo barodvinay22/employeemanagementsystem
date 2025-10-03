@@ -72,7 +72,34 @@ IoC And Dependency Injection:
   * XML based configuration
   * Annotation based configuration
 
-Depdendency Injection Types:
-Consturction Injection
+Dependency Injection Types:
+Construction Injection
 Setter Injection
+
+Microservice:
+Microservice is an architectural style where a large application is dividend into a small set of independent loosely coupled services.
+Each service:
+* focuses on a specific business functionality.
+* Can be developed deployed and scaled independently.
+* Communication with other service using lightweight protocols( like REST APIs, messaging queue).
+
+Docker:
+Docker is an open source platform to build package and run application inside container.
+
+A container is a lightweight standalone and portable unit that contains everything needed to run an application code
+runtime libraries and dependencies.
+
+Key Concepts:
+1. Image:
+    * Blueprint for container
+    * Contains application code + dependencies.
+2. Container:
+   * Running instance of image
+   * Lightweight and isolated but share the host OS kernel
+3. Dockerfile
+   * A script with instructions to build an image.
+4. Docker Hub:
+   * A public registry to share and download images.
+5. Docker Engine
+   * Core part of docker that runs and manager container.
 
