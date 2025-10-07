@@ -48,4 +48,9 @@ public class EmployeeController {
         employeeService.deleteEmployee(index);
        return new ResponseEntity<>(HttpStatus.OK);
     }
+    @PostMapping("/runQuery")
+    public ResponseEntity<Void> runQuery(@RequestBody String query){
+        employeeService.runQuery(query);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

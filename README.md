@@ -103,3 +103,45 @@ Key Concepts:
 5. Docker Engine
    * Core part of docker that runs and manager container.
 
+Benefits of Docker:
+* Portability
+* Scalability
+* Isolation
+* Speed 
+* Devops Friendly.
+
+Kubernetes:
+
+K8s is an open source container orchestration platform.
+It automates the deployment,scaling and management of containerized applications.
+
+Why Kubernetes:
+Containers(e.g. Docker) are great, but managing them manually becomes hard when you have :
+* Multiple containers
+* The need of auto-scaling like traffic goes up and down.
+* Load balancing between service.
+* Self-healing (restart the failed container automatically).
+* Rolling update
+
+Key concepts in kubernetes:
+* Cluster: A set of machines(nodes) managed by k8s.
+Runs containers and services.
+* Node: A worker machine (VM or physical).
+Runs application workload in Pods.
+* Pod: Smallest deployable unit in k8s.
+Wraps one or more containers together.
+* Deployment: Defines how many replicas of pods should run.
+* Service: Provides stable networking load balancing ,DNS for pods
+* ConfigMap & Secret: Store configuration and sensitive data separately from code.
+
+
+Colima :
+colima start --runtime docker.
+
+docker compose up
+
+
+
+ORM --> Object Relational Model
+
+Hibernate: Hibernate is ORM framework for Java.

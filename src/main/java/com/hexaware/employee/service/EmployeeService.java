@@ -1,8 +1,11 @@
 package com.hexaware.employee.service;
 
+import com.hexaware.employee.dao.EmployeeDao;
 import com.hexaware.employee.model.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,6 +13,10 @@ import java.util.List;
 
 @Service
 public class EmployeeService {
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private EmployeeDao employeeDao;
     Logger logger = LoggerFactory.getLogger(EmployeeService.class);
     static List<Employee> employeeList = new ArrayList<>();
     static {
@@ -18,7 +25,8 @@ public class EmployeeService {
         employeeList.add(new Employee(3,"Kesav"));
     }
     public List<Employee> getAllEmployees() {
-        return employeeList;
+        //return employeeList;
+        return employeeDao.getEmployee();
     }
 
     public Employee addEmployee(Employee employee) {
@@ -37,5 +45,13 @@ public class EmployeeService {
 
     public void deleteEmployee(int index) {
         employeeList.remove(index);
+    }
+
+    public void runQuery(String query) {
+        //jdbcTemplate.execute(query);//DDL and DML
+        jdbcTemplate.update(query);
+
+        // DDL --> Data definition Language --> Create table index
+        // DML--> Daat Manipulating Language--> Insert update delete and select
     }
 }
