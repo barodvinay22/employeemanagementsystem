@@ -145,3 +145,13 @@ docker compose up
 ORM --> Object Relational Model
 
 Hibernate: Hibernate is ORM framework for Java.
+It maps Java Objects(entities) to database tables and handles interaction with relational database.
+
+Keys Features of Hibernate:
+1. ORM support - Maps Java classes to database tables using annotations or XML.
+2. HQL  - Database independent query language similar to SQL but works on objects not tables
+3. Automatic Table generation -Creates or updates schema based on entity definition.
+4. Caching Mechanism 
+5. Lazy & Eager loading - Controls how related entities are fetched.
+6. Transaction Management 
+7. Database Independence 

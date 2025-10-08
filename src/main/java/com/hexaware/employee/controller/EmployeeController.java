@@ -34,19 +34,33 @@ public class EmployeeController {
     public ResponseEntity<Employee> addEmployee(@RequestBody Employee name){
        return new ResponseEntity<>(employeeService.addEmployee(name),HttpStatus.CREATED);
     }
-    @GetMapping("/{index}")
-    public ResponseEntity<Employee> getEmployee(@PathVariable("index") Integer index){
-       return new ResponseEntity<>(employeeService.getEmployee(index), HttpStatus.OK);
+//    @GetMapping("/{index}")
+//    public ResponseEntity<Employee> getEmployee(@PathVariable("index") Integer index){
+//       return new ResponseEntity<>(employeeService.getEmployee(index), HttpStatus.OK);
+//    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Employee> getEmployee(@PathVariable("id") Integer id){
+       return new ResponseEntity<>(employeeService.getEmployeeById(id), HttpStatus.OK);
     }
-    @PutMapping("/{index}")
-    public ResponseEntity<Employee> updateEmployee(@PathVariable("index") Integer index,@RequestBody Employee employee){
+//    @PutMapping("/{index}")
+//    public ResponseEntity<Employee> updateEmployee(@PathVariable("index") Integer index,@RequestBody Employee employee){
+//
+//        return new ResponseEntity<>(employeeService.updateEmployee(index,employee),HttpStatus.OK);
+//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Employee> updateEmployee(@PathVariable("id") Integer id,@RequestBody Employee employee){
 
-        return new ResponseEntity<>(employeeService.updateEmployee(index,employee),HttpStatus.OK);
+        return new ResponseEntity<>(employeeService.updateEmployeeById(id,employee),HttpStatus.OK);
     }
-    @DeleteMapping("/{index}")
-    public ResponseEntity<Void> deleteEmployee(@PathVariable("index") int index){
-        employeeService.deleteEmployee(index);
-       return new ResponseEntity<>(HttpStatus.OK);
+//    @DeleteMapping("/{index}")
+//    public ResponseEntity<Void> deleteEmployee(@PathVariable("index") int index){
+//        employeeService.deleteEmployee(index);
+//       return new ResponseEntity<>(HttpStatus.OK);
+//    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteEmployee(@PathVariable("id") int id){
+        employeeService.deleteEmployeeById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
     @PostMapping("/runQuery")
     public ResponseEntity<Void> runQuery(@RequestBody String query){
