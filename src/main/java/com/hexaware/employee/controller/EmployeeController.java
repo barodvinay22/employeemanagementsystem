@@ -31,8 +31,8 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeService.getAllEmployees(), HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<Employee> addEmployee(@RequestBody Employee name){
-       return new ResponseEntity<>(employeeService.addEmployee(name),HttpStatus.CREATED);
+    public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
+       return new ResponseEntity<>(employeeService.addEmployee(employee),HttpStatus.CREATED);
     }
 //    @GetMapping("/{index}")
 //    public ResponseEntity<Employee> getEmployee(@PathVariable("index") Integer index){

@@ -22,6 +22,8 @@ public class EmployeeService {
     
     @Autowired
     private EmployeeRepository employeeRepository;
+    @Autowired
+    private DepartmentService departmentService;
     
     Logger logger = LoggerFactory.getLogger(EmployeeService.class);
     static List<Employee> employeeList = new ArrayList<>();
@@ -41,7 +43,10 @@ public class EmployeeService {
     public Employee addEmployee(Employee employee) {
 //        employeeList.add(employee);
 //        return employee;
-       com.hexaware.employee.entity.Employee savedEmployee= employeeRepository.save(new com.hexaware.employee.entity.Employee(employee.getId(),employee.getName()));
+        com.hexaware.employee.entity.Employee employeeEntity= new com.hexaware.employee.entity.Employee(employee.getId(),employee.getName());
+        employeeEntity.setDepartment(departmentService.getDepartment(employee.getDepartmentId()));
+       com.hexaware.employee.entity.Employee savedEmployee= employeeRepository.save(employeeEntity);
+
         return  new Employee(savedEmployee.getId(),savedEmployee.getName());
     }
 

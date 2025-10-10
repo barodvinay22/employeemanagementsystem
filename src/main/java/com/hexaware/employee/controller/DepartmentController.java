@@ -1,8 +1,11 @@
 package com.hexaware.employee.controller;
 
 import com.hexaware.employee.entity.Department;
+import com.hexaware.employee.entity.Employee;
 import com.hexaware.employee.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,5 +31,9 @@ public class DepartmentController {
     @GetMapping("/{id}")
     public Department getDepartment(@PathVariable Long id) {
         return departmentService.getDepartment(id);
+    }
+    @GetMapping("/{id}/employees")
+    public ResponseEntity<com.hexaware.employee.model.Department> getEmployeesByDepartment(@PathVariable Long id) {
+    return new ResponseEntity<>(departmentService.getDepartmentWithEmployees(id), HttpStatus.OK);
     }
 }
